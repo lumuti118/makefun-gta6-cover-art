@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA 6 style cover art from your photos</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h1>Vice Cover Studio</h1>
+    <p class="tag">Turn your photos into a Vice City sunset poster. Photos stay on your device — nothing is uploaded.</p>
+
+    <fieldset>
+      <legend>1 · Photos</legend>
+      <label class="file">Add photos <input id="photo" type="file" accept="image/*" multiple></label>
+      <div class="row">
+        <button type="button" data-sample="boulevard">Sample: boulevard</button>
+        <button type="button" data-sample="pier">Sample: pier</button>
+      </div>
+      <div id="tray" class="tray"></div>
+      <p class="hint">Click a thumbnail, then a panel row, to place it. Drag a photo on the cover to reposition it; scroll over it to zoom.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · Layout</legend>
+      <div class="row">
+        <button type="button" data-layout="hero" class="active">Hero + 2</button>
+        <button type="button" data-layout="trio">Trio</button>
+        <button type="button" data-layout="quad">Quad</button>
+        <button type="button" data-layout="full">Full photo</button>
+      </div>
+      <div id="panels" class="panels"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Colour grade</legend>
+      <div class="row">
+        <button type="button" data-grade="sunset" class="active">Sunset</button>
+        <button type="button" data-grade="neon">Neon</button>
+        <button type="button" data-grade="noir">Noir</button>
+        <button type="button" data-grade="palms">Palms</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Caption</legend>
+      <label>Main caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
+      <label>Sub-caption <input id="sub" type="text" maxlength="40" value="Vice City Nights"></label>
+      <label>Size <input id="capSize" type="range" min="0.7" max="1.4" step="0.05" value="1"></label>
+      <div class="row">
+        <span class="lbl">Colour</span>
+        <button type="button" data-color="#ffffff" class="swatch active" style="--c:#ffffff" aria-label="White"></button>
+        <button type="button" data-color="#ffd166" class="swatch" style="--c:#ffd166" aria-label="Gold"></button>
+        <button type="button" data-color="#ff5ea8" class="swatch" style="--c:#ff5ea8" aria-label="Pink"></button>
+        <button type="button" data-color="#00e5ff" class="swatch" style="--c:#00e5ff" aria-label="Cyan"></button>
+      </div>
+      <label>Position
+        <select id="capPos">
+          <option value="bottom" selected>Bottom</option>
+          <option value="top">Top</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>5 · Export PNG</legend>
+      <div class="row">
+        <button type="button" data-export="square">1080 × 1080</button>
+        <button type="button" data-export="portrait">1080 × 1350</button>
+        <button type="button" data-export="wide">1920 × 1080</button>
+      </div>
+      <p id="status" role="status"></p>
+    </fieldset>
+  </section>
+
+  <section class="stage" aria-label="Live preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover preview"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
